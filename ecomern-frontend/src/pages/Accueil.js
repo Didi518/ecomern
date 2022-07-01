@@ -9,7 +9,7 @@ function Accueil() {
   return (
     <div>
       <img
-        src="https://zupimages.net/up/22/26/ujxu.png"
+        src="https://zupimages.net/up/22/26/jvw3.png"
         alt="Bannière Keke-Store"
         className="home-banner"
       />

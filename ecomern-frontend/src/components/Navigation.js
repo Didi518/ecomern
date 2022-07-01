@@ -1,9 +1,18 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
+import { logout } from '../features/userSlice';
 import './Navigation.css';
 
 function Navigation() {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  function handleLogout() {
+    dispatch(logout());
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -13,18 +22,47 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/connexion">Connexion</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            {/* si pas de connexion */}
+            {!user && (
+              <LinkContainer to="/connexion">
+                <Nav.Link>Connexion</Nav.Link>
+              </LinkContainer>
+            )}
+            {/* si connecté */}
+            {user && !user.isAdmin && (
+              <NavDropdown title={`${user.email}`} id="basic-nav-dropdown">
+                {user.isAdmin && (
+                  <>
+                    <LinkContainer to="/panneau-admin">
+                      <NavDropdown.Item>
+                        Panneau Administrateur
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/nouvel-article">
+                      <NavDropdown.Item>Créez un article</NavDropdown.Item>
+                    </LinkContainer>
+                  </>
+                )}
+                {!user.isAdmin && (
+                  <>
+                    <LinkContainer to="/panier">
+                      <NavDropdown.Item>Mon panier</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/commandes">
+                      <NavDropdown.Item>Mes commandes</NavDropdown.Item>
+                    </LinkContainer>
+                  </>
+                )}
+                <NavDropdown.Divider />
+                <Button
+                  variant="danger"
+                  onClick={handleLogout}
+                  className="logout-btn"
+                >
+                  Déconnexion
+                </Button>
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Inscription.css';
+import { useLoginMutation } from '../services/appApi';
 
 function Connexion() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [login, { isError, isLoading, error }] = useLoginMutation();
 
-  function handleSubmit() {}
+  function handleLogin(e) {
+    e.preventDefault();
+    login({ email, password });
+  }
   return (
     <Container>
       <Row>
         <Col md={6} className="login__image--container"></Col>
         <Col md={6} className="login__form--container">
-          <Form style={{ width: '100%' }}>
+          <Form style={{ width: '100%' }} onSubmit={handleLogin}>
             <h1>Connectez-vous à votre compte</h1>
+            {isError && <Alert variant="danger">{error.data}</Alert>}
             <Form.Group>
               <Form.Label>Adresse E-mail</Form.Label>
               <Form.Control
@@ -36,7 +41,9 @@ function Connexion() {
               />
             </Form.Group>
             <Form.Group>
-              <Button type="submit">Connexion</Button>
+              <Button type="submit" disabled={isLoading}>
+                Connexion
+              </Button>
             </Form.Group>
             <p>
               Vous n'êtes pas encore inscrit?{' '}
