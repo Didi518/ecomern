@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Inscription.css';
 
 function Inscription() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <Container>
       <Row>
-        <Col md={6} className="login__form--container">
+        <Col md={6} className="signup__form--container">
           <Form style={{ width: '100%' }}>
             <h1>Créez votre compte</h1>
             <Form.Group>

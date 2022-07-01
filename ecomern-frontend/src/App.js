@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Accueil from './pages/Accueil';
 import Connexion from './pages/Connexion';
+import Inscription from './pages/Inscription';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route index element={<Accueil />} />
           <Route path="/connexion" element={<Connexion />} />
+          <Route path="/inscription" element={<Inscription />} />
           <Route path="*" element={<Accueil />} />
         </Routes>
       </BrowserRouter>

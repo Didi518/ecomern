@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Inscription.css';
 
 function Connexion() {
   const [email, setEmail] = useState('');
@@ -10,6 +11,7 @@ function Connexion() {
   return (
     <Container>
       <Row>
+        <Col md={6} className="login__image--container"></Col>
         <Col md={6} className="login__form--container">
           <Form style={{ width: '100%' }}>
             <h1>Connectez-vous à votre compte</h1>
@@ -42,7 +44,6 @@ function Connexion() {
             </p>
           </Form>
         </Col>
-        <Col md={6} className="login__image--container"></Col>
       </Row>
     </Container>
   );
