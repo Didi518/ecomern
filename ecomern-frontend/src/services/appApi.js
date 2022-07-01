@@ -19,9 +19,18 @@ export const appApi = createApi({
         body: user,
       }),
     }),
+    // création d'article
+    createProduct: builder.mutation({
+      query: (product) => ({
+        url: '/articles',
+        body: product,
+        method: 'POST',
+      }),
+    }),
   }),
 });
 
-export const { useSignupMutation, useLoginMutation } = appApi;
+export const { useSignupMutation, useLoginMutation, useCreateProductMutation } =
+  appApi;
 
 export default appApi;

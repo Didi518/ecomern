@@ -6,6 +6,7 @@ import Accueil from './pages/Accueil';
 import Connexion from './pages/Connexion';
 import Inscription from './pages/Inscription';
 import { useSelector } from 'react-redux';
+import NouvelArticle from './pages/NouvelArticle';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -21,6 +22,7 @@ function App() {
               <Route path="/inscription" element={<Inscription />} />
             </>
           )}
+          <Route path="/nouvel-article" element={<NouvelArticle />} />
           <Route path="*" element={<Accueil />} />
         </Routes>
       </BrowserRouter>
