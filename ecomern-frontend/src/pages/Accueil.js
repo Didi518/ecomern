@@ -1,11 +1,23 @@
-import React from 'react';
+import axios from '../axios';
+import React, { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import categories from '../categories';
 import './Accueil.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProducts } from '../features/productSlice';
+import ProductPreview from '../components/ProductPreview';
 
 function Accueil() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+  const lastProducts = products.slice(0, 8);
+
+  useEffect(() => {
+    axios.get('/articles').then(({ data }) => dispatch(updateProducts(data)));
+  }, [dispatch]);
+
   return (
     <div>
       <img
@@ -16,6 +28,11 @@ function Accueil() {
       <div className="featured-products-container container mt-4">
         <h2>Derniers articles</h2>
         {/* nouveautés appelés depuis le back */}
+        <div className="d-flex justify-content-center flex-wrap">
+          {lastProducts.map((product) => (
+            <ProductPreview {...product} />
+          ))}
+        </div>
         <div>
           <Link
             to="/categorie/toutes"

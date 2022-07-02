@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCreateProductMutation } from '../services/appApi';
 import axios from '../axios';
 import './NouvelArticle.css';
