@@ -8,6 +8,7 @@ import Inscription from './pages/Inscription';
 import { useSelector } from 'react-redux';
 import NouvelArticle from './pages/NouvelArticle';
 import Article from './pages/Article';
+import Categorie from './pages/Categorie';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -24,6 +25,7 @@ function App() {
             </>
           )}
           <Route path="/article/:id" element={<Article />} />
+          <Route path="/categorie/:category" element={<Categorie />} />
           <Route path="/nouvel-article" element={<NouvelArticle />} />
           <Route path="*" element={<Accueil />} />
         </Routes>
