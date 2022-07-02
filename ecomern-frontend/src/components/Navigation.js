@@ -28,6 +28,18 @@ function Navigation() {
                 <Nav.Link>Connexion</Nav.Link>
               </LinkContainer>
             )}
+            {user && !user.isAdmin && (
+              <LinkContainer to="/panier">
+                <Nav.Link>
+                  <i className="fas fa-shopping-cart"></i>
+                  {user?.cart.count > 0 && (
+                    <span className="badge badge-warning" id="cartcount">
+                      {user.cart.count}
+                    </span>
+                  )}
+                </Nav.Link>
+              </LinkContainer>
+            )}
             {/* si connecté */}
             {user && !user.isAdmin && (
               <NavDropdown title={`${user.email}`} id="basic-nav-dropdown">

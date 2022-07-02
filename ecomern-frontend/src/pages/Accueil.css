@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: all 0.3s;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .card {

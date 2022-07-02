@@ -15,7 +15,6 @@ function Connexion() {
   return (
     <Container>
       <Row>
-        <Col md={6} className="login__image--container"></Col>
         <Col md={6} className="login__form--container">
           <Form style={{ width: '100%' }} onSubmit={handleLogin}>
             <h1>Connectez-vous à votre compte</h1>
@@ -51,6 +50,7 @@ function Connexion() {
             </p>
           </Form>
         </Col>
+        <Col md={6} className="login__image--container"></Col>
       </Row>
     </Container>
   );

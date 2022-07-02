@@ -111,9 +111,8 @@ function NouvelArticle() {
                 <option disabled selected>
                   -- Choisissez une catégorie --
                 </option>
-                <option value="hitech">Hi Tech</option>
-                <option value="smartphone">Smartphones</option>
-                <option value="mode">Mode</option>
+                <option value="hitech">Hitech</option>
+                <option value="smartphone">Smartphone</option>
                 <option value="laptop">Laptop</option>
               </Form.Select>
             </Form.Group>

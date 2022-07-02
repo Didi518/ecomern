@@ -27,10 +27,49 @@ export const appApi = createApi({
         method: 'POST',
       }),
     }),
+    // ajout au panier
+    addToCart: builder.mutation({
+      query: (cartInfo) => ({
+        url: '/articles/ajouter-au-panier',
+        body: cartInfo,
+        method: 'POST',
+      }),
+    }),
+    // supprimer du panier
+    removeFromCart: builder.mutation({
+      query: (body) => ({
+        url: '/articles/supprimer-du-panier',
+        body,
+        method: 'DELETE',
+      }),
+    }),
+    // augmenter le panier
+    increaseCartProduct: builder.mutation({
+      query: (body) => ({
+        url: '/articles/augmenter-panier',
+        body,
+        method: 'POST',
+      }),
+    }),
+    // réduire le panier
+    decreaseCartProduct: builder.mutation({
+      query: (body) => ({
+        url: '/articles/reduire-panier',
+        body,
+        method: 'POST',
+      }),
+    }),
   }),
 });
 
-export const { useSignupMutation, useLoginMutation, useCreateProductMutation } =
-  appApi;
+export const {
+  useSignupMutation,
+  useLoginMutation,
+  useCreateProductMutation,
+  useAddToCartMutation,
+  useRemoveFromCartMutation,
+  useIncreaseCartProductMutation,
+  useDecreaseCartProductMutation,
+} = appApi;
 
 export default appApi;

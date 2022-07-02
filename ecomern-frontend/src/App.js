@@ -9,12 +9,15 @@ import { useSelector } from 'react-redux';
 import NouvelArticle from './pages/NouvelArticle';
 import Article from './pages/Article';
 import Categorie from './pages/Categorie';
+import ScrollToTop from './components/ScrollToTop';
+import Panier from './pages/Panier';
 
 function App() {
   const user = useSelector((state) => state.user);
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Navigation />
         <Routes>
           <Route index element={<Accueil />} />
@@ -22,6 +25,11 @@ function App() {
             <>
               <Route path="/connexion" element={<Connexion />} />
               <Route path="/inscription" element={<Inscription />} />
+            </>
+          )}
+          {user && (
+            <>
+              <Route path="/panier" element={<Panier />} />
             </>
           )}
           <Route path="/article/:id" element={<Article />} />
