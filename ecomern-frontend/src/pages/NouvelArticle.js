@@ -114,7 +114,7 @@ function NouvelArticle() {
                 <option value="hitech">Hi Tech</option>
                 <option value="smartphone">Smartphones</option>
                 <option value="mode">Mode</option>
-                <option value="laptops">Laptops</option>
+                <option value="laptop">Laptop</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
