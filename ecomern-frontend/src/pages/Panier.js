@@ -1,12 +1,19 @@
-import React from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import React, { useState } from 'react';
 import { Alert, Col, Container, Row, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import CheckoutForm from '../components/CheckoutForm';
 import {
   useDecreaseCartProductMutation,
   useIncreaseCartProductMutation,
   useRemoveFromCartMutation,
 } from '../services/appApi';
 import './Panier.css';
+
+const stripePromise = loadStripe(
+  'pk_test_51LHDsbKXldPn3Cphky4DuVIRfE2G6dPwA4T8umm31bn5AFYErUHaXBHisFMdapNs06dokmfkjv2iKajBYzzYgV8C00qtKJ7sdN'
+);
 
 function Panier() {
   const user = useSelector((state) => state.user);
@@ -35,7 +42,9 @@ function Panier() {
               Votre panier est vide. Ajoutez des articles au panier
             </Alert>
           ) : (
-            <div>Régler la commande</div>
+            <Elements stripe={stripePromise}>
+              <CheckoutForm />
+            </Elements>
           )}
         </Col>
         <Col md={5}>
