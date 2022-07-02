@@ -40,7 +40,7 @@ export const appApi = createApi({
       query: (body) => ({
         url: '/articles/supprimer-du-panier',
         body,
-        method: 'DELETE',
+        method: 'POST',
       }),
     }),
     // augmenter le panier
