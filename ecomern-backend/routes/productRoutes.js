@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 const User = require('../models/User');
 
 // récupérer les articles
-router.get('/', async (req, res) => {
+router.get('/api/data', async (req, res) => {
   try {
     const sort = { _id: -1 };
     const products = await Product.find().sort(sort);
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // créer un article
-router.post('/', async (req, res) => {
+router.post('/api/data', async (req, res) => {
   try {
     const { name, description, price, category, images: pictures } = req.body;
     const product = await Product.create({

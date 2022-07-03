@@ -38,7 +38,7 @@ function NouvelArticle() {
       ({ data }) => {
         if (data.length > 0) {
           setTimeout(() => {
-            navigate('/');
+            navigate('/accueil');
           }, 1500);
         }
       }
