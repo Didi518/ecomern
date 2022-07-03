@@ -3,7 +3,7 @@ const Order = require('../models/Order');
 const User = require('../models/User');
 
 // création de la commande
-router.post('/api/data', async (req, res) => {
+router.post('/', async (req, res) => {
   const { userId, cart, country, address } = req.body;
   try {
     const user = await User.findById(userId);
@@ -26,7 +26,7 @@ router.post('/api/data', async (req, res) => {
 });
 
 // liste des commandes
-router.get('/api/data', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const orders = await Order.find().populate('owner', ['email', 'name']);
     res.status(200).json(orders);
