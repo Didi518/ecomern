@@ -1,6 +1,6 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import React, { useState } from 'react';
+import React from 'react';
 import { Alert, Col, Container, Row, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import CheckoutForm from '../components/CheckoutForm';

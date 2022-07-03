@@ -11,6 +11,7 @@ import Article from './pages/Article';
 import Categorie from './pages/Categorie';
 import ScrollToTop from './components/ScrollToTop';
 import Panier from './pages/Panier';
+import Commandes from './pages/Commandes';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -30,6 +31,7 @@ function App() {
           {user && (
             <>
               <Route path="/panier" element={<Panier />} />
+              <Route path="/commandes" element={<Commandes />} />
             </>
           )}
           <Route path="/article/:id" element={<Article />} />
