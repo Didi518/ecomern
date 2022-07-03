@@ -41,11 +41,11 @@ function Navigation() {
               </LinkContainer>
             )}
             {/* si connecté */}
-            {user && !user.isAdmin && (
+            {user && (
               <NavDropdown title={`${user.email}`} id="basic-nav-dropdown">
                 {user.isAdmin && (
                   <>
-                    <LinkContainer to="/panneau-admin">
+                    <LinkContainer to="/admin">
                       <NavDropdown.Item>
                         Panneau Administrateur
                       </NavDropdown.Item>

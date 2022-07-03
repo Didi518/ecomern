@@ -12,6 +12,7 @@ import Categorie from './pages/Categorie';
 import ScrollToTop from './components/ScrollToTop';
 import Panier from './pages/Panier';
 import Commandes from './pages/Commandes';
+import PanneauAdmin from './pages/PanneauAdmin';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -32,6 +33,11 @@ function App() {
             <>
               <Route path="/panier" element={<Panier />} />
               <Route path="/commandes" element={<Commandes />} />
+            </>
+          )}
+          {user && user.isAdmin && (
+            <>
+              <Route path="/admin" element={<PanneauAdmin />} />
             </>
           )}
           <Route path="/article/:id" element={<Article />} />
