@@ -41,5 +41,5 @@ app.post('/valider-payment', async (req, res) => {
 });
 
 server.listen(8080, () => {
-  console.log('server running at port', 8080);
+  // console.log('server running at port', 8080);
 });
