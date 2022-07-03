@@ -15,6 +15,7 @@ const io = new Server(server, {
 const User = require('./models/User');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const imageRoutes = require('./routes/imageRoutes');
 
 app.use(cors());
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/utilisateurs', userRoutes);
 app.use('/articles', productRoutes);
+app.use('/commandes', orderRoutes);
 app.use('/images', imageRoutes);
 
 app.post('/valider-payment', async (req, res) => {

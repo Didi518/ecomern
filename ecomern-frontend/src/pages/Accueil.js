@@ -35,7 +35,7 @@ function Accueil() {
         </div>
         <div>
           <Link
-            to="/categorie/toutes"
+            to="/categorie/tout"
             style={{
               textAlign: 'right',
               display: 'block',

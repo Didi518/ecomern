@@ -43,8 +43,8 @@ function Commandes() {
           <tr>
             <th>#</th>
             <th>Status</th>
+            <th>Date</th>
             <th>Total</th>
-            <th>&nbsc;</th>
           </tr>
         </thead>
         <tbody>
@@ -53,14 +53,14 @@ function Commandes() {
               <td>{order._id}</td>
               <td>
                 <Badge
-                  bg={`${order.status === 'En cours' ? 'warning' : 'succes'}`}
+                  bg={`${order.status === 'en cours' ? 'warning' : 'success'}`}
                   text="white"
                 >
                   {order.status}
                 </Badge>
               </td>
-              <td>{order.total}€</td>
-              <td>{order._id}</td>
+              <td>{order.date}</td>
+              <td>${order.total}</td>
             </tr>
           ))}
         </tbody>

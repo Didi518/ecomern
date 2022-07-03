@@ -80,7 +80,7 @@ router.get('/categorie/:category', async (req, res) => {
   const { category } = req.params;
   try {
     let products;
-    if (category == 'toutes') {
+    if (category == 'tout') {
       products = await Product.find().sort([['date', -1]]);
     } else {
       products = await Product.find({ category });
