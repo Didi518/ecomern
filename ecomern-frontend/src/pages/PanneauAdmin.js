@@ -1,15 +1,14 @@
 import React from 'react';
-import { Col, Container, Nav, Row, Tab } from 'react-bootstrap';
-import axios from '../axios';
+import { Container, Nav, Tab, Col, Row } from 'react-bootstrap';
 import DashboardProducts from '../components/DashboardProducts';
-import './PanneauAdmin.css';
+import OrdersAdminPage from '../components/OrdersAdminPage';
 
 function PanneauAdmin() {
   return (
     <Container>
       <Tab.Container defaultActiveKey="products">
         <Row>
-          <Col md={3}>
+          <Col sm={3}>
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="products">Articles</Nav.Link>
@@ -22,9 +21,14 @@ function PanneauAdmin() {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col md={9}>
-            <Tab.Content eventKey="products">
-              <DashboardProducts />
+          <Col sm={9}>
+            <Tab.Content>
+              <Tab.Pane eventKey="products">
+                <DashboardProducts />
+              </Tab.Pane>
+              <Tab.Pane eventKey="orders">
+                <OrdersAdminPage />
+              </Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>

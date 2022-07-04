@@ -112,7 +112,7 @@ function Article() {
           )}
           {user && user.isAdmin && (
             <LinkContainer to={`/article/${product._id}/edit`}>
-              <Button size="lg">Editer l'article'</Button>
+              <Button size="lg">Editer l'article</Button>
             </LinkContainer>
           )}
           {isSuccess && (

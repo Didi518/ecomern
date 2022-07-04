@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Panier from './pages/Panier';
 import Commandes from './pages/Commandes';
 import PanneauAdmin from './pages/PanneauAdmin';
+import EditerArticle from './pages/EditerArticle';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -38,6 +39,7 @@ function App() {
           {user && user.isAdmin && (
             <>
               <Route path="/admin" element={<PanneauAdmin />} />
+              <Route path="/article/:id/edit" element={<EditerArticle />} />
             </>
           )}
           <Route path="/article/:id" element={<Article />} />

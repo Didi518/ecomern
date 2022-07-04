@@ -35,4 +35,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+// commande livrée
+router.patch('/:id/livraison', async (req, res) => {
+  const { ownerId } = req.body;
+  const { id } = req.params;
+  try {
+    const user = await User.findById(ownerId);
+    await Order.findByIdAndUpdate(id, { status: 'livrée' });
+    const orders = await Order.find().populate('owner', ['email', 'name']);
+    res.status(200).json(orders);
+  } catch (e) {
+    res.status(400).json(e.message);
+  }
+});
+
 module.exports = router;
