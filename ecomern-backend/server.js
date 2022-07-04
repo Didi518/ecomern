@@ -40,6 +40,6 @@ app.post('/valider-payment', async (req, res) => {
   }
 });
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 5000, () => {
   console.log(`server is running on ${process.env.PORT}`);
 });
