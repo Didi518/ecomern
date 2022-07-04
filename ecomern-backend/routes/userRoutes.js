@@ -28,7 +28,7 @@ router.post('/connexion', async (req, res) => {
 });
 
 // get users
-router.get('/utilisateurs', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const users = await User.find({ isAdmin: false }).populate('orders');
     res.json(users);

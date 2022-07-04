@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Nav, Tab, Col, Row } from 'react-bootstrap';
+import ClientsAdminPage from '../components/ClientsAdminPage';
 import DashboardProducts from '../components/DashboardProducts';
 import OrdersAdminPage from '../components/OrdersAdminPage';
 
-function PanneauAdmin() {
+function AdminDashboard() {
   return (
     <Container>
       <Tab.Container defaultActiveKey="products">
@@ -29,6 +30,9 @@ function PanneauAdmin() {
               <Tab.Pane eventKey="orders">
                 <OrdersAdminPage />
               </Tab.Pane>
+              <Tab.Pane eventKey="clients">
+                <ClientsAdminPage />
+              </Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>
@@ -37,4 +41,4 @@ function PanneauAdmin() {
   );
 }
 
-export default PanneauAdmin;
+export default AdminDashboard;
